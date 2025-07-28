@@ -3,3 +3,41 @@
     outline:none;
     font-size:0.8em;
 }
+#sketchContainer{
+    width:400px;
+    height:400px;
+    display: flex;
+    flex-direction: column;
+    margin:0 auto;
+    padding:0;
+    gap:0;
+    border:none;
+    border:1px solid black;
+}
+.columns{
+    margin:0;
+    border:none;
+    padding:0;
+    display: flex;
+    flex-direction: row;
+    gap:0;
+    line-height: 0;
+}
+.rows{
+    border:none;
+    padding: 0;
+    margin: 0;
+    border: none; 
+    box-sizing: border-box; 
+    background-color:white; 
+}
+.Color{
+    display: flex;
+    justify-content: center;
+    align-content:center;
+}
+img{
+    border-radius: 10px;
+    width:50px;
+    height:50px;
+}
