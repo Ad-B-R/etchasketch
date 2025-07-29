@@ -1,10 +1,19 @@
 const container = document.querySelector('#sketchContainer');
 const gridSize = document.querySelector('#inp');
-const eraser = document.querySelector('#eraser');
+const colorPallete = document.querySelector('#color');
+const throwMessage = document.querySelector('.throw');
+const opacityVal = document.querySelector('#opacityValue');
 let isDrawing = false;
 let SIZE = 16;
 let isGridCreated = false;
-let isErasing = false;
+let colorSelector = "black";
+let opacityNumericValue = '100%';
+
+let colors = colorPallete.children;
+for(let j = 0;j<colors.length;j++){
+    colors[j].style.backgroundColor = colors[j].id;
+    // console.log(colors[j].id);
+}
 
 function createChild(){
     SIZE = parseInt(gridSize.value);
@@ -29,6 +38,7 @@ gridSize.addEventListener('keydown', function(event){
         if(isGridCreated==false){
             createChild();
             isGridCreated=true;
+            throwMessage.textContent = "";
         }
         else{
             let child = container.lastElementChild;
@@ -38,28 +48,41 @@ gridSize.addEventListener('keydown', function(event){
             }
             createChild();
         }
+
     }
 });
 
 container.addEventListener('mousedown',function(event){
-    const cell = event.target.closest('div.rows');
-    if(!isErasing) cell.style.backgroundColor = "black";
-    else cell.style.backgroundColor = "white";
-    // console.log("Yes");
-    isDrawing = true;
+    if(isGridCreated){
+        const cell = event.target.closest('div.rows');
+        cell.style.backgroundColor = colorSelector;
+        cell.style.opacity = opacityNumericValue;
+        isDrawing = true;
+    }
+    else{
+        throwMessage.textContent = "Please Enter a valid value";
+    }
 });
 
 container.addEventListener('mouseover',function(event){
     if(isDrawing){
         const cell = event.target.closest('div.rows');
-        if(!isErasing) cell.style.backgroundColor = "black";
-        else cell.style.backgroundColor = "white";
+        cell.style.backgroundColor = colorSelector;
+        cell.style.opacity = opacityNumericValue;
     }
 });
 
 container.addEventListener('mouseup',()=>{ 
     isDrawing=false; 
-    isErasing=false
 })
 
-eraser.addEventListener('mousedown',()=>{ isErasing=true;})
+colorPallete.addEventListener('mousedown',(event)=>{ 
+    let colorElement = event.target.closest('.colorSelect');
+    colorSelector = colorElement.id;
+})
+
+opacityVal.addEventListener('keydown', function(event){
+    if(event.key=="Enter"){
+        opacityNumericValue = parseFloat(opacityVal.value)/100;
+    }
+})

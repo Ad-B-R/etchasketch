@@ -9,11 +9,25 @@
 <body>
     <h1 style="text-align: center;">Etch a sketch</h1>
     <h2>Enter the grid size: <input type="text" id="inp"></h2>
+    <h2><span class="throw"></span></h2>
     <div id="sketchContainer">
     </div>
     <br/>
-    <div class="Color">
-        <img src="./image.png" alt="eraser" id="eraser">
+    <div id="color">
+        <div class="colorSelect" id="white"></div>
+        <div class="colorSelect" id="red"></div>
+        <div class="colorSelect" id="blue"></div>
+        <div class="colorSelect" id="green"></div>
+        <div class="colorSelect" id="yellow"></div>
+        <div class="colorSelect" id="orange"></div>
+        <div class="colorSelect" id="pink"></div>
+        <div class="colorSelect" id="purple"></div>
+        <div class="colorSelect" id="black"></div>
+    </div>
+    <div class="opacityPortion">
+        <h2>Please Enter an opacity value: 
+            <input type="text" id="opacityValue" placeholder="100%" value="100%">
+        </h2>
     </div>
     <script src="./script.js"></script>
 </body>
