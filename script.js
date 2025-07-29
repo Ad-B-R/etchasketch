@@ -9,15 +9,22 @@ let isGridCreated = false;
 let colorSelector = "black";
 let opacityNumericValue = '100%';
 
-let colors = colorPallete.children;
-for(let j = 0;j<colors.length;j++){
-    colors[j].style.backgroundColor = colors[j].id;
-    // console.log(colors[j].id);
+let colorArray = [
+    "white","red","blue","green","yellow","orange",
+    "pink","purple","black"
+]
+for(let j = 0;j<colorArray.length;j++){
+    let colorChildNode = document.createElement('div');
+    colorChildNode.classList.add('colorSelect');
+    colorChildNode.id = colorArray[j];
+    colorChildNode.style.backgroundColor = colorArray[j];
+    colorPallete.appendChild(colorChildNode);
+    // console.log(colorArray[j]);
 }
 
 function createChild(){
     SIZE = parseInt(gridSize.value);
-    console.log(gridSize.value);
+    // console.log(gridSize.value);
     const cellSize = 400/SIZE;
     for(let i=0;i<SIZE;i++){
         let childNode = document.createElement('div');
