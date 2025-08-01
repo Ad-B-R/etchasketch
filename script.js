@@ -3,11 +3,27 @@ const gridSize = document.querySelector('#inp');
 const colorPallete = document.querySelector('#color');
 const throwMessage = document.querySelector('.throw');
 const opacityVal = document.querySelector('#opacityValue');
+const themeSelect = document.querySelector('#toggleTheme');
+const html = document.querySelector('html');
+let isDarkTheme = false;
 let isDrawing = false;
 let SIZE = 16;
 let isGridCreated = false;
 let colorSelector = "black";
 let opacityNumericValue = '100%';
+
+themeSelect.addEventListener('click',function(event){
+    if(!isDarkTheme){
+        html.classList.remove('light');
+        html.classList.add('dark');
+        isDarkTheme = true;
+    }
+    else{
+        html.classList.remove('dark');
+        html.classList.add('light');
+        isDarkTheme = false;
+    }
+})
 
 let colorArray = [
     "white","red","blue","green","yellow","orange",

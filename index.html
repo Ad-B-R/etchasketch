@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="light">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,18 +7,25 @@
     <title>Etch A sketch</title>
 </head>
 <body>
-    <h1 style="text-align: center;">Etch a sketch</h1>
-    <h2>Enter the grid size: <input type="text" id="inp"></h2>
-    <h2><span class="throw"></span></h2>
+    <div class="Theme">
+        <h1 style="text-align: center;">Etch a sketch</h1>
+        <div class="Intro">
+            <h2>Enter the grid size: <input type="text" id="inp"></h2>
+            <button id="toggleTheme">Dark</button>
+        </div>
+        <h2><span class="throw"></span></h2>
+    </div>
     <div id="sketchContainer">
     </div>
     <br/>
-    <div id="color">
-    </div>
-    <div class="opacityPortion">
-        <h2>Please Enter an opacity value: 
-            <input type="text" id="opacityValue" placeholder="100%" value="100%">
-        </h2>
+    <div class="Theme">
+        <div id="color">
+        </div>
+        <div class="opacityPortion">
+            <h2>Please Enter an opacity value: 
+                <input type="text" id="opacityValue" placeholder="100%" value="100%">
+            </h2>
+        </div>
     </div>
     <script src="./script.js"></script>
 </body>

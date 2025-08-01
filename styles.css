@@ -1,3 +1,22 @@
+:root.dark{
+    --border-btn:1px solid white;
+    --color-font: white;
+    --color-background:black;
+    --color-btn-bg: rgb(50, 53, 59);
+}
+:root.light{
+    --border-btn:1px solid black;
+    --color-font: black;
+    --color-background:white;
+    --color-btn-bg: rgb(220, 221, 224);
+}
+
+body{
+    border: none;
+    color:var(--color-font);
+    background-color: var(--color-background);
+}
+
 #inp{
     border:none;
     outline:none;
@@ -12,7 +31,17 @@
     padding:0;
     gap:0;
     border:none;
-    border:1px solid black;
+    border:var(--border-btn);
+}
+.Intro{
+    display: flex;
+    justify-content: space-between;
+}
+#toggleTheme{
+    width:3rem;
+    height:3rem;
+    background-color: var(--color-btn-bg);
+    color:var(--color-font);
 }
 .columns{
     margin:0;
@@ -38,7 +67,7 @@
 }
 .colorSelect{
     border-radius: 50%;
-    border:1px solid black;
+    border:var(--border-btn);
     width:50px;
     height:50px;
 }
