@@ -5,6 +5,7 @@ const throwMessage = document.querySelector('.throw');
 const opacityVal = document.querySelector('#opacityValue');
 const themeSelect = document.querySelector('#toggleTheme');
 const html = document.querySelector('html');
+const customColorButton = document.querySelector('#customColor')
 let isDarkTheme = false;
 let isDrawing = false;
 let SIZE = 16;
@@ -16,18 +17,20 @@ themeSelect.addEventListener('click',function(event){
     if(!isDarkTheme){
         html.classList.remove('light');
         html.classList.add('dark');
+        themeSelect.textContent = 'Light';
         isDarkTheme = true;
     }
     else{
         html.classList.remove('dark');
         html.classList.add('light');
+        themeSelect.textContent = 'Dark';
         isDarkTheme = false;
     }
 })
 
 let colorArray = [
     "white","red","blue","green","yellow","orange",
-    "pink","purple","black"
+    "pink","purple","black",
 ]
 for(let j = 0;j<colorArray.length;j++){
     let colorChildNode = document.createElement('div');
@@ -107,5 +110,13 @@ colorPallete.addEventListener('mousedown',(event)=>{
 opacityVal.addEventListener('keydown', function(event){
     if(event.key=="Enter"){
         opacityNumericValue = parseFloat(opacityVal.value)/100;
+    }
+})
+
+customColorButton.addEventListener('keydown', function(event){
+    if(event.key=="Enter"){
+        // console.log(customColorButton.value);
+        colorSelector = customColorButton.value;
+        customColorButton.value = "";
     }
 })
